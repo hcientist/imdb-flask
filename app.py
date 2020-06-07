@@ -27,7 +27,8 @@ def get_movies(title):
 @app.route("/<title>", strict_slashes=False)
 def list_movies(title="%"):
     # template = "template.html"
-    template = "simple.html"
+    # template = "simple.html"
+    template = "basic.html"
     movie_search_results = get_movies(title)
     query = title
     if title == "%":
