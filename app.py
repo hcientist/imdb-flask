@@ -28,10 +28,17 @@ def get_movies(title):
 def list_movies(title="%"):
     # template = "template.html"
     # template = "simple.html"
-    template = "basic.html"
+    # template = "basic.html"
     movie_search_results = get_movies(title)
     query = title
     if title == "%":
         query = "All"
-    return render_template(template, query=query, 
-                           movies=movie_search_results)
+    output = query
+    line_break = "<br>"
+    for movie in movie_search_results:
+        movie_title = movie[1]
+        output = output + line_break + movie_title
+    #return render_template(template, query=query, 
+    #                       movies=movie_search_results)
+    # return f"{query}<br>{'<br>'.join([movie[1] for movie in movie_search_results])}"
+    return output
